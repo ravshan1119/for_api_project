@@ -1,16 +1,16 @@
 import 'package:for_api_project/data/network/api_provider.dart';
-import 'package:for_api_project/model/games_model.dart';
+import 'package:for_api_project/model/card_model.dart';
 import 'package:for_api_project/model/universalResponse.dart';
 
-class GamesRepository {
+class CardRepository {
   final ApiProvider apiProvider;
 
-  GamesRepository({required this.apiProvider});
+  CardRepository({required this.apiProvider});
 
-  Future<List<GamesModel>> fetchGames() async {
-    UniversalResponse universalResponse = await apiProvider.getAllGames();
+  Future<List<CardModel>> fetchGames() async {
+    UniversalResponse universalResponse = await apiProvider.getAllCards();
     if (universalResponse.error.isEmpty) {
-      return universalResponse.data as List<GamesModel>;
+      return universalResponse.data as List<CardModel>;
     }
     return [];
   }
